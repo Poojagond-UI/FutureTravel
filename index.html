@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyRide - Urban Flying Taxi Network</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <path d="M16 2L24 8V16L16 22L8 16V8L16 2Z" fill="url(#logoGradient)"/>
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00D4FF"/>
+                                <stop offset="100%" stop-color="#8B5CF6"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <span class="brand-text">SkyRide</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#" class="nav-link active" data-section="booking">Book Ride</a>
+                <a href="#" class="nav-link" data-section="tracking">Track Flight</a>
+                <a href="#" class="nav-link" data-section="routes">Sky Routes</a>
+                <a href="#" class="nav-link" data-section="fleet">Fleet Status</a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn-secondary">Sign In</button>
+                <button class="btn-primary">Get Started</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Booking Section -->
+        <section id="booking" class="section active">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        The Future of Urban Transport
+                        <span class="gradient-text">is Here</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Book instant flying taxi rides across the city with AI-optimized sky routes and zero emissions
+                    </p>
+                </div>
+                
+                <div class="booking-card">
+                    <div class="booking-header">
+                        <h2>Book Your Sky Ride</h2>
+                        <div class="ride-type-selector">
+                            <button class="ride-type active" data-type="instant">
+                                <span class="ride-icon">⚡</span>
+                                Instant
+                            </button>
+                            <button class="ride-type" data-type="scheduled">
+                                <span class="ride-icon">📅</span>
+                                Scheduled
+                            </button>
+                            <button class="ride-type" data-type="shared">
+                                <span class="ride-icon">👥</span>
+                                Shared
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="booking-form">
+                        <div class="location-inputs">
+                            <div class="input-group">
+                                <label>From</label>
+                                <div class="location-input">
+                                    <span class="location-icon">📍</span>
+                                    <input type="text" placeholder="Current location" value="Downtown Sky Terminal">
+                                </div>
+                            </div>
+                            <div class="swap-locations">
+                                <button class="swap-btn">⇅</button>
+                            </div>
+                            <div class="input-group">
+                                <label>To</label>
+                                <div class="location-input">
+                                    <span class="location-icon">🎯</span>
+                                    <input type="text" placeholder="Where to?">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="ride-options">
+                            <div class="option-group">
+                                <label>Passengers</label>
+                                <select class="select-input">
+                                    <option>1 passenger</option>
+                                    <option>2 passengers</option>
+                                    <option>3 passengers</option>
+                                    <option>4 passengers</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label>Vehicle Type</label>
+                                <select class="select-input">
+                                    <option>Standard Pod</option>
+                                    <option>Luxury Cabin</option>
+                                    <option>Cargo Transport</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <button class="book-ride-btn">
+                            <span>Find Sky Routes</span>
+                            <span class="btn-arrow">→</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Route Results -->
+            <div class="route-results">
+                <h3>Available Routes</h3>
+                <div class="routes-grid">
+                    <div class="route-card recommended">
+                        <div class="route-header">
+                            <span class="route-badge">Recommended</span>
+                            <span class="route-time">8 min</span>
+                        </div>
+                        <div class="route-details">
+                            <div class="route-path">
+                                <span class="path-point">Downtown Terminal</span>
+                                <div class="path-line">
+                                    <div class="path-progress"></div>
+                                </div>
+                                <span class="path-point">Business District</span>
+                            </div>
+                            <div class="route-info">
+                                <div class="info-item">
+                                    <span class="info-label">Altitude</span>
+                                    <span class="info-value">500m</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Traffic</span>
+                                    <span class="info-value traffic-low">Low</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Price</span>
+                                    <span class="info-value">$24</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="select-route-btn">Select Route</button>
+                    </div>
+
+                    <div class="route-card">
+                        <div class="route-header">
+                            <span class="route-badge">Fastest</span>
+                            <span class="route-time">6 min</span>
+                        </div>
+                        <div class="route-details">
+                            <div class="route-path">
+                                <span class="path-point">Downtown Terminal</span>
+                                <div class="path-line">
+                                    <div class="path-progress"></div>
+                                </div>
+                                <span class="path-point">Business District</span>
+                            </div>
+                            <div class="route-info">
+                                <div class="info-item">
+                                    <span class="info-label">Altitude</span>
+                                    <span class="info-value">800m</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Traffic</span>
+                                    <span class="info-value traffic-medium">Medium</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Price</span>
+                                    <span class="info-value">$32</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="select-route-btn">Select Route</button>
+                    </div>
+
+                    <div class="route-card">
+                        <div class="route-header">
+                            <span class="route-badge">Eco</span>
+                            <span class="route-time">12 min</span>
+                        </div>
+                        <div class="route-details">
+                            <div class="route-path">
+                                <span class="path-point">Downtown Terminal</span>
+                                <div class="path-line">
+                                    <div class="path-progress"></div>
+                                </div>
+                                <span class="path-point">Business District</span>
+                            </div>
+                            <div class="route-info">
+                                <div class="info-item">
+                                    <span class="info-label">Altitude</span>
+                                    <span class="info-value">300m</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Traffic</span>
+                                    <span class="info-value traffic-low">Low</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Price</span>
+                                    <span class="info-value">$18</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="select-route-btn">Select Route</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tracking Section -->
+        <section id="tracking" class="section">
+            <div class="tracking-container">
+                <div class="tracking-header">
+                    <h1>Flight Tracking</h1>
+                    <p>Monitor your flying taxi in real-time with live sky traffic updates</p>
+                </div>
+
+                <div class="tracking-grid">
+                    <div class="sky-map">
+                        <div class="map-container">
+                            <div class="sky-layers">
+                                <div class="sky-layer" data-altitude="300">
+                                    <span class="layer-label">300m - Eco Layer</span>
+                                    <div class="traffic-dots">
+                                        <div class="traffic-dot eco"></div>
+                                        <div class="traffic-dot eco"></div>
+                                        <div class="traffic-dot eco"></div>
+                                    </div>
+                                </div>
+                                <div class="sky-layer" data-altitude="500">
+                                    <span class="layer-label">500m - Standard Layer</span>
+                                    <div class="traffic-dots">
+                                        <div class="traffic-dot standard active"></div>
+                                        <div class="traffic-dot standard"></div>
+                                        <div class="traffic-dot standard"></div>
+                                        <div class="traffic-dot standard"></div>
+                                    </div>
+                                </div>
+                                <div class="sky-layer" data-altitude="800">
+                                    <span class="layer-label">800m - Express Layer</span>
+                                    <div class="traffic-dots">
+                                        <div class="traffic-dot express"></div>
+                                        <div class="traffic-dot express"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="route-path">
+                                <div class="route-line"></div>
+                                <div class="taxi-position">
+                                    <div class="taxi-icon">🚁</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flight-info">
+                        <div class="flight-status">
+                            <div class="status-header">
+                                <h3>Flight SR-4829</h3>
+                                <span class="status-badge in-flight">In Flight</span>
+                            </div>
+                            <div class="flight-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 65%"></div>
+                                </div>
+                                <div class="progress-info">
+                                    <span>65% Complete</span>
+                                    <span>3 min remaining</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flight-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Current Altitude</span>
+                                <span class="detail-value">487m</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Speed</span>
+                                <span class="detail-value">120 km/h</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Weather</span>
+                                <span class="detail-value">Clear ☀️</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Pilot</span>
+                                <span class="detail-value">AI-Autopilot</span>
+                            </div>
+                        </div>
+
+                        <div class="emergency-controls">
+                            <button class="emergency-btn">Emergency Landing</button>
+                            <button class="contact-btn">Contact Support</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sky Routes Section -->
+        <section id="routes" class="section">
+            <div class="routes-container">
+                <div class="routes-header">
+                    <h1>Sky Route Network</h1>
+                    <p>Explore the three-dimensional highway system optimized by AI traffic management</p>
+                </div>
+
+                <div class="route-controls">
+                    <div class="altitude-selector">
+                        <label>View Altitude Layer</label>
+                        <div class="altitude-buttons">
+                            <button class="altitude-btn active" data-altitude="300">300m</button>
+                            <button class="altitude-btn" data-altitude="500">500m</button>
+                            <button class="altitude-btn" data-altitude="800">800m</button>
+                            <button class="altitude-btn" data-altitude="all">All</button>
+                        </div>
+                    </div>
+                    <div class="traffic-filter">
+                        <label>Traffic Density</label>
+                        <select class="filter-select">
+                            <option>All Traffic</option>
+                            <option>Low Density</option>
+                            <option>Medium Density</option>
+                            <option>High Density</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="sky-network">
+                    <div class="network-visualization">
+                        <div class="city-grid">
+                            <div class="district" data-district="downtown">
+                                <div class="district-label">Downtown</div>
+                                <div class="sky-terminal">
+                                    <div class="terminal-icon">🏢</div>
+                                    <span class="terminal-name">Central Terminal</span>
+                                </div>
+                            </div>
+                            <div class="district" data-district="business">
+                                <div class="district-label">Business</div>
+                                <div class="sky-terminal">
+                                    <div class="terminal-icon">🏬</div>
+                                    <span class="terminal-name">Trade Hub</span>
+                                </div>
+                            </div>
+                            <div class="district" data-district="residential">
+                                <div class="district-label">Residential</div>
+                                <div class="sky-terminal">
+                                    <div class="terminal-icon">🏘️</div>
+                                    <span class="terminal-name">Living Complex</span>
+                                </div>
+                            </div>
+                            <div class="district" data-district="tech">
+                                <div class="district-label">Tech District</div>
+                                <div class="sky-terminal">
+                                    <div class="terminal-icon">🔬</div>
+                                    <span class="terminal-name">Innovation Center</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <svg class="route-connections" viewBox="0 0 600 400">
+                            <defs>
+                                <linearGradient id="routeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#00D4FF" stop-opacity="0.8"/>
+                                    <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.8"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M150,100 Q300,50 450,100" stroke="url(#routeGradient)" stroke-width="3" fill="none" class="route-line"/>
+                            <path d="M150,100 Q200,200 150,300" stroke="url(#routeGradient)" stroke-width="3" fill="none" class="route-line"/>
+                            <path d="M450,100 Q500,200 450,300" stroke="url(#routeGradient)" stroke-width="3" fill="none" class="route-line"/>
+                            <path d="M150,300 Q300,350 450,300" stroke="url(#routeGradient)" stroke-width="3" fill="none" class="route-line"/>
+                            <path d="M300,150 L300,250" stroke="url(#routeGradient)" stroke-width="3" fill="none" class="route-line"/>
+                        </svg>
+                    </div>
+
+                    <div class="route-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">🚁</div>
+                            <div class="stat-info">
+                                <div class="stat-value">247</div>
+                                <div class="stat-label">Active Flights</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">⚡</div>
+                            <div class="stat-info">
+                                <div class="stat-value">2.3s</div>
+                                <div class="stat-label">Avg Response</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🎯</div>
+                            <div class="stat-info">
+                                <div class="stat-value">99.8%</div>
+                                <div class="stat-label">On-Time Rate</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🌱</div>
+                            <div class="stat-info">
+                                <div class="stat-value">0kg</div>
+                                <div class="stat-label">CO₂ Emissions</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fleet Status Section -->
+        <section id="fleet" class="section">
+            <div class="fleet-container">
+                <div class="fleet-header">
+                    <h1>Fleet Management</h1>
+                    <p>Real-time monitoring of our autonomous flying taxi fleet</p>
+                </div>
+
+                <div class="fleet-overview">
+                    <div class="fleet-stats">
+                        <div class="fleet-stat">
+                            <div class="stat-number">156</div>
+                            <div class="stat-description">
+                                <span class="stat-title">Active Vehicles</span>
+                                <span class="stat-subtitle">Currently in service</span>
+                            </div>
+                        </div>
+                        <div class="fleet-stat">
+                            <div class="stat-number">23</div>
+                            <div class="stat-description">
+                                <span class="stat-title">Charging</span>
+                                <span class="stat-subtitle">At sky stations</span>
+                            </div>
+                        </div>
+                        <div class="fleet-stat">
+                            <div class="stat-number">8</div>
+                            <div class="stat-description">
+                                <span class="stat-title">Maintenance</span>
+                                <span class="stat-subtitle">Scheduled service</span>
+                            </div>
+                        </div>
+                        <div class="fleet-stat">
+                            <div class="stat-number">98.7%</div>
+                            <div class="stat-description">
+                                <span class="stat-title">Uptime</span>
+                                <span class="stat-subtitle">Last 30 days</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fleet-grid">
+                    <div class="vehicle-card">
+                        <div class="vehicle-header">
+                            <div class="vehicle-id">SR-001</div>
+                            <div class="vehicle-status status-active">Active</div>
+                        </div>
+                        <div class="vehicle-info">
+                            <div class="info-row">
+                                <span>Battery</span>
+                                <div class="battery-indicator">
+                                    <div class="battery-fill" style="width: 87%"></div>
+                                    <span class="battery-text">87%</span>
+                                </div>
+                            </div>
+                            <div class="info-row">
+                                <span>Location</span>
+                                <span>Downtown Terminal</span>
+                            </div>
+                            <div class="info-row">
+                                <span>Passengers</span>
+                                <span>2/4</span>
+                            </div>
+                            <div class="info-row">
+                                <span>Next Service</span>
+                                <span>47 flights</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vehicle-card">
+                        <div class="vehicle-header">
+                            <div class="vehicle-id">SR-002</div>
+                            <div class="vehicle-status status-charging">Charging</div>
+                        </div>
+                        <div class="vehicle-info">
+                            <div class="info-row">
+                                <span>Battery</span>
+                                <div class="battery-indicator">
+                                    <div class="battery-fill charging" style="width: 34%"></div>
+                                    <span class="battery-text">34%</span>
+                                </div>
+                            </div>
+                            <div class="info-row">
+                                <span>Location</span>
+                                <span>Sky Station Alpha</span>
+                            </div>
+                            <div class="info-row">
+                                <span>Charge Time</span>
+                                <span>12 min remaining</span>
+                            </div>
+                            <div class="info-row">
+                                <span>Next Service</span>
+                                <span>12 flights</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vehicle-card">
+                        <div class="vehicle-header">
+                            <div class="vehicle-id">SR-003</div>
+                            <div class="vehicle-status status-maintenance">Maintenance</div>
+                        </div>
+                        <div class="vehicle-info">
+                            <div class="info-row">
+                                <span>Battery</span>
+                                <div class="battery-indicator">
+                                    <div class="battery-fill" style="width: 0%"></div>
+                                    <span class="battery-text">--</span>
+                                </div>
+                            </div>
+                            <div class="info-row">
+                                <span>Location</span>
+                                <span>Service Center</span>
+                            </div>
+                            <div class="info-row">
+                                <span>Issue</span>
+                                <span>Rotor calibration</span>
+                            </div>
+                            <div class="info-row">
+                                <span>ETA Return</span>
+                                <span>2 hours</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="traffic-management">
+                    <h2>AI Traffic Management</h2>
+                    <div class="traffic-grid">
+                        <div class="traffic-zone">
+                            <div class="zone-header">
+                                <h4>Downtown Corridor</h4>
+                                <span class="traffic-level low">Low Traffic</span>
+                            </div>
+                            <div class="zone-metrics">
+                                <div class="metric">
+                                    <span class="metric-label">Vehicles</span>
+                                    <span class="metric-value">23</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Avg Speed</span>
+                                    <span class="metric-value">118 km/h</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Efficiency</span>
+                                    <span class="metric-value">94%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="traffic-zone">
+                            <div class="zone-header">
+                                <h4>Business District</h4>
+                                <span class="traffic-level medium">Medium Traffic</span>
+                            </div>
+                            <div class="zone-metrics">
+                                <div class="metric">
+                                    <span class="metric-label">Vehicles</span>
+                                    <span class="metric-value">67</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Avg Speed</span>
+                                    <span class="metric-value">89 km/h</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Efficiency</span>
+                                    <span class="metric-value">87%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="traffic-zone">
+                            <div class="zone-header">
+                                <h4>Airport Approach</h4>
+                                <span class="traffic-level high">High Traffic</span>
+                            </div>
+                            <div class="zone-metrics">
+                                <div class="metric">
+                                    <span class="metric-label">Vehicles</span>
+                                    <span class="metric-value">134</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Avg Speed</span>
+                                    <span class="metric-value">65 km/h</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Efficiency</span>
+                                    <span class="metric-value">76%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating Action Button -->
+    <div class="fab">
+        <button class="fab-btn" id="emergencyFab">
+            <span class="fab-icon">🚨</span>
+            <span class="fab-text">Emergency</span>
+        </button>
+    </div>
+
+    <!-- Notification System -->
+    <div class="notification-container" id="notifications"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
